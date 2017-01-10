@@ -1,0 +1,304 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Xcode Development Environment</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<!------------------------------------slide--------------------------------------------- -->
+				<section>
+					<h2>Introduction to Swift Development</h2>
+					<h3>Getting Started</h3>
+				</section>
+
+				<!------------------------------------slide--------------------------------------------- -->
+				<section>
+					<section>
+						<h2>Your Development Environment</h2>
+					</section>
+					<section>
+						<h2>IDE</h2>
+						<h3>Integrated development environment</h3>
+					</section>
+					<section>
+						<h2>Xcode 8</h2>
+						<p>Xcode 8 includes everything you need to create apps for iPhone, iPad, Mac, Apple Watch, and Apple TV.</p>
+					</section>
+				</section>
+
+				<!------------------------------------slide--------------------------------------------- -->
+				<section>
+					<section>
+						<h2>Create a playground</h2>
+					</section>
+					<section>
+						<p>Playgrounds are an interactive sandbox environment that enables you to learn and explore Swift and visualize the results of your code in real-time after each edit and without requiring you to manually build and run.</p>
+					</section>
+					<section>
+						<h2>Creating a playground</h2>
+						<ol>
+							<li>Launch Xcode if it's not already running</li>
+							<li>
+								<ul>
+									<li>click get started with a playground in the welcome window</li>
+									<li>or select file>new playground</li>
+								</ul>
+							</li>
+							<li>Accept the suggested file name or give it a new name, and select iOS for the platform</li>
+							<li>Click create</li>
+						</ol>
+					</section>
+					<section>
+						<p>
+							The source editor is where you type your code.
+						</p>
+						*add image here*
+					</section>
+					<section>
+						<p>
+							To the right of the source editor is the results sidebar. It displays the results of each expression as you type it into the editor.
+						</p>
+						*add image here*
+					</section>
+					<section>
+						<p>
+							The debug area will display error messages and the results of print statements. In the toolbar at the top, the status displays ready. As you edit your source code, the status display will change to running whatever you named your playground file.
+						</p>
+					</section>
+					<section>
+						<p>
+							 Playgrounds support markup to allow you to create rich, in-line documentation in a playground.
+						</p>
+						<pre><code data-trim>
+//: Playground - noun: a place where people can play
+						</code></pre>
+					</section>
+					<section>
+						<p>
+							 It's necessary to import an external framework before use.
+						</p>
+						<pre><code data-trim>
+import UIKit
+						</code></pre>
+					</section>
+					<section>
+						 <p>You may see red dots with white dots in them, or yellow warning icons in the gutter, representing errors and warnings respectively. Clicking on those icons will typically display helpful explanations and fix it suggestions.</p>
+					</section>
+					<section>
+						<h3>Some Code Examples</h3>
+						<pre><code data-trim>
+var str = "Hello, playground
+// variable definition
+
+var hello = "Hello,"; var playground = "playground"
+// a ';' is used to write two or more statements on a single line
+
+for i in 0..<64{
+    var point = sin(Double(i) * 100)
+}
+// this will execute the code 64 times
+// clicking 'quick view' or 'show result' will show different views of the data
+						</code></pre>
+					</section>
+				</section>
+
+				<!------------------------------------slide--------------------------------------------- -->
+				<section>
+					<section>
+						<h2>Log to the console</h2>
+					</section>
+					<section>
+						<p>
+							 Printing info to the console is a fundamental aspect of programming in any language
+						</p>
+					</section>
+					<section>
+						<p>
+							 The Swift standard library includes the print function, which is used to print a textual representation of a value to the standard output.
+						</p>
+						<pre><code data-trim>
+print(str)
+//  Print automatically prints a new line character at the end
+
+NSLog(str)
+// NSLog is still available and a great choice if you want to include
+// a time stamp in your printout.
+
+print(hello, playground)
+// Print can print multiple items passed to it in a comma separated list too.
+// This kind of parameter is called a variatic parameter
+// because it can take one or more values in a comma separated list.
+						</code></pre>
+					</section>
+					<section>
+						<p>
+							 Print offers some additional options which can be seen by option clicking on print to access it's quick help documentation in a popup.
+						</p>
+						<pre><code data-trim>
+print(hello, playground, separator: "_", terminator: " ")
+// change Prints default separator and terminator
+
+print("...")
+// Because we've specified an empty string for the terminator the
+// next printed message will also begin on the same line.
+						</code></pre>
+
+					</section>
+					<section>
+						<p>
+							 Print can use string interpolation to print values or simple expressions that return a value embedded into a string. To include a value or expression is a string to be printed, write a backslash and then enclose the value or expression in parentheses.
+						</p>
+						<pre><code data-trim>
+print("\(hello) viewer!")
+
+print("1 + 1 = \(1 + 1)")
+// print the result of an an expression
+						</code></pre>
+					</section>
+					<section>
+						<p>
+							 Literal expressions available in Swift that you can use to print useful information to the console.
+						</p>
+						<pre><code data-trim>
+// creating a function that prints examples of each of these literals.
+func printLiteralExpressions() {
+    print("Function: \(#function)")
+    print("File: \(#file)")
+    print("Line: \(#line)")
+    print("Column: \(#column)")
+}
+
+printLiteralExpressions()
+// The result of printing these literals can be seen in the console.
+						</code></pre>
+					</section>
+				</section>
+				<!------------------------------------slide--------------------------------------------- -->
+				<section>
+					<section>
+						<h2>Add comments</h2>
+					</section>
+					<section>
+						<p>
+							adding comments to your code can go a long way towards helping your fellow programmers understand how to work with the code you've written, so it has to provide details about parameters from method or example use cases.
+						</p>
+					</section>
+					<section>
+						<p>
+							 The syntax to write a single-line comment is to write two forward slashes, followed by your comment text
+						</p>
+						<pre><code data-trim>
+// Single-line comment
+						</code></pre>
+					</section>
+					<section>
+						<p>
+							Single-line comments also support using landmarks, which will be displayed in the jump bar, and that runs along the top of the source editor and is currently displaying the playground file name.
+						</p>
+						*Add image here
+					</section>
+					<section>
+						<p>
+							There are three landmarks available in Swift, Mark, ToDo, and FixMe.
+						</p>
+						<pre><code data-trim>
+// MARK: This is viewable in the jumb bar
+
+// TODO: Do this
+
+// FIXME: Fix this
+
+// MARK: - Add a separator above this
+						</code></pre>
+					</section>
+					<section>
+						<p>
+							 these landmarks can be searched, which makes them useful for quickly being able to find all tasks or issues that need attention.
+						</p>
+					</section>
+					<section>
+						<p>
+							Multi-line comments can be created by writing a forward slash, an asterisk to start, and an asterisk forward slash to end.
+						</p>
+						<pre><code data-trim>
+func someFunction() {
+    /* A multi-line comment
+    nested in a function
+    */
+}
+						</code></pre>
+					</section>
+					<section>
+						<p>
+							 Xcode supports using markup syntax to create rich text comments, which are referred to as delimited comments, or often just delimiters.
+						</p>
+						<p>
+							 Apple's <a href="https://goo.gl/4AOSi9" target="_blank">markup formatting reference documentation</a> details using markup in comments.
+
+						</p>
+					</section>
+				</section>
+
+				<!------------------------------------slide--------------------------------------------- -->
+				<section>
+					<section>
+						<h2>Run a REPL</h2>
+					</section>
+					<section>
+						<p>
+							 A REPL, or read eval print loop, can be initiated in a command line environment such as from the terminal app or in an Xcode project console during a paused debug session.
+						</p>
+					</section>
+					<section>
+						<p>
+						 To start a REPL session using terminal, which can be launched by using Spotlight, but you can also find it in the applications utilities folder type swift at the command prompt and press return.
+						</p>
+					</section>
+					<section>
+						<p>
+							 To end a REPL, type colon quit, or just colon Q.
+						</p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
